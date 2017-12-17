@@ -1,12 +1,12 @@
 /* eslint-disable */ 
 <template>
-  <div class="form-group">{{ token }}</div>
+  <div  class="form-group">{{ token }}</div>
 </template>
 
 <script>
 export default {
-  props: ['token', 'index']
-}
+  props: ['token'],
+};
 </script>
 
 <style>

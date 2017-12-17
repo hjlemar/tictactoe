@@ -28,11 +28,4 @@ describe('Cell.vue', () => {
     .to.equal('X')
   });
 
-  it('has index 3 and value O', () => {
-    const propsData = {token: 'O', index: 3}
-    const vm = new Constructor({ propsData }).$mount();
-    expect(vm.$el.textContent)
-        .to.equal('O');
-    expect(vm.index).to.equal(3);
-  });
 })
