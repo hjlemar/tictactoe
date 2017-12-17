@@ -1,6 +1,6 @@
 /* eslint-disable */ 
 <template>
-  <div>{{ token }}</div>
+  <div class="form-group">{{ token }}</div>
 </template>
 
 <script>
