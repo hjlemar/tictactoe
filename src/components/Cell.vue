@@ -8,11 +8,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
     div {
         width: 100px;
         height: 100px;
         background-color: lightblue;
+        margin: 2px;
+        border-radius: 15px;
     }
 </style>
 

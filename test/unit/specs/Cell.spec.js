@@ -13,16 +13,12 @@ describe('Cell.vue', () => {
 
   it('should render correct contents as ""', () => {
     const vm = new Constructor().$mount();
-
-    expect(vm.$el.textContent)
-    .toEqual('');
+    expect(vm.$el.textContent).toEqual('');
   });
 
   it('should render correct contents as X', () => {
     const propsData = { token: 'X' };
     const vm = new Constructor({ propsData }).$mount();
-
-    expect(vm.$el.textContent)
-    .toEqual('X');
+    expect(vm.$el.textContent).toEqual('X');
   });
 });
