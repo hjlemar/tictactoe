@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import CellGrid from '@/components/CellGrid';
-import Cell from '@/components/Cell';
 import { mount } from 'vue-test-utils';
 
 describe('CellGrid.vue', () => {
@@ -20,7 +19,7 @@ describe('CellGrid.vue', () => {
   it('emits a cellSelected event with i = 2', () => {
     const propsData = { cells: Array.from({ length: 9 }) };
     const wrapper = mount(CellGrid, {
-      propsData
+      propsData,
     });
 
     wrapper.vm.cellSelected(2);

@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Board from '@/components/Board';
-import { mount } from 'vue-test-utils';
 
 describe('CellGrid.vue', () => {
   let Constructor;
@@ -30,9 +29,8 @@ describe('CellGrid.vue', () => {
     expect(vm.player).toBe('O');
     expect(vm.cells[0]).toBe('X');
 
-    const board = Array.from({ length: 9});
+    const board = Array.from({ length: 9 });
     board[0] = 'X';
     expect(vm.cells).toEqual(board);
-
   });
 });
