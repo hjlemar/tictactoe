@@ -1,7 +1,7 @@
 <template>
   <div id="cellgrid" class="form row">
       <cell class="col-sm-3"
-        v-for="(c,i) in cells" :token="cells[i]" v-bind:key="i"
+        v-for="(c,i) in cells" :token="cells[i]" :key="i"
         @click.native='cellSelected(i)'
       ></cell>
   </div>
