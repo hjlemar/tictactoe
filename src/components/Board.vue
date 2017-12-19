@@ -1,6 +1,6 @@
 <template>
   <div>
-    <info></info>
+    <info :status="status()"></info>
     <cell-grid :cells="cells" @cellSelected='cellSelected'></cell-grid>
   </div>
 </template>
@@ -22,17 +22,51 @@ export default {
   },
   methods: {
     cellSelected(cell) {
+      if (this.gameWon()) {
+        return;
+      }
       // using this.cells[cell] = this.player
       // is not observable in JS.
-      this.$set(this.cells, cell, this.player);
-      this.swapPlayer();
+      if (this.cells[cell] === undefined) {
+        this.$set(this.cells, cell, this.player);
+        this.swapPlayer();
+      }
     },
     swapPlayer() {
+      if (this.gameWon()) {
+        return;
+      }
       if (this.player === 'X') {
         this.player = 'O';
       } else {
         this.player = 'X';
       }
+    },
+    status() {
+      if (this.gameWon()) {
+        return `Game won by ${this.player}`;
+      }
+      return `It is ${this.player} turn`;
+    },
+    gameWon() {
+      const check = this.check;
+      // horizontal rows
+      return check(0, 1, 2)
+        || check(3, 4, 5)
+        || check(6, 7, 8)
+        // vertical rows
+        || check(0, 3, 6)
+        || check(1, 4, 7)
+        || check(2, 5, 8)
+        // diagnol starting from upper left
+        || check(0, 4, 8)
+        // diagnol starting from lower left
+        || check(2, 4, 6);
+    },
+    check(a, b, c) {
+      return this.cells[a] !== undefined
+        && this.cells[a] === this.cells[b]
+        && this.cells[b] === this.cells[c];
     },
   },
 };
