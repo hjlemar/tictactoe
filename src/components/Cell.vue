@@ -1,5 +1,5 @@
 <template>
-  <div  class="form-group">{{ token }}</div>
+  <div>{{ token }}</div>
 </template>
 
 <script>
@@ -10,11 +10,11 @@ export default {
 
 <style scoped>
     div {
-        width: 100px;
-        height: 100px;
-        background-color: lightblue;
-        margin: 2px;
-        border-radius: 15px;
+      width: 50px;
+      height: 50px;
+      background-color: lightblue;
+      margin: 2px;
+      border-radius: 15px;
     }
 </style>
 

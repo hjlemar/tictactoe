@@ -1,5 +1,5 @@
 <template>
-  <div id="cellgrid" class="form row">
+  <div id="cellgrid" class="row justify-content-center">
       <cell class="col-sm-3"
         v-for="(c,i) in cells" :token="cells[i]" :key="i"
         @click.native='cellSelected(i)'
@@ -27,7 +27,7 @@ export default {
 
 <style>
   #cellgrid {
-    width: 350px;
+    
   }
   
 </style>

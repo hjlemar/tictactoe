@@ -1,7 +1,12 @@
 <template>
-  <div>
-    <info :status="status()"></info>
+  <div id="board">
+    <div class="row justify-content-center">
+      <info :status="status()"></info>
+    </div>
     <cell-grid :cells="cells" @cellSelected='cellSelected'></cell-grid>
+    <div class="row justify-content-center" v-if="gameWon()">
+      <button class="btn btn-primary" @click="reset">New Game</button>
+    </div>
   </div>
 </template>
 
@@ -68,10 +73,14 @@ export default {
         && this.cells[a] === this.cells[b]
         && this.cells[b] === this.cells[c];
     },
+    reset() {
+      this.player = 'X';
+      this.cells = Array.from({ length: 9 });
+    }
   },
 };
 </script>
-
+  
 <style>
 
 </style>
