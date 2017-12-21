@@ -4,7 +4,7 @@
       <info :status="status()"></info>
     </div>
     <cell-grid :cells="cells" @cellSelected='cellSelected'></cell-grid>
-    <div class="row justify-content-center" v-if="gameWon() || gameTied()">
+    <div class="row justify-content-center" v-if="gameWon() || gameTied()gi">
       <button class="btn btn-primary" @click="reset">New Game</button>
     </div>
   </div>
