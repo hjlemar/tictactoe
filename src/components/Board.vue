@@ -4,7 +4,7 @@
       <info :status="status()"></info>
     </div>
     <cell-grid :cells="cells" @cellSelected='cellSelected'></cell-grid>
-    <div class="row justify-content-center" v-if="gameWon()">
+    <div class="row justify-content-center" v-if="gameWon() || gameTied()">
       <button class="btn btn-primary" @click="reset">New Game</button>
     </div>
   </div>
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     cellSelected(cell) {
-      if (this.gameWon()) {
+      if (this.gameWon() || this.gameTied()) {
         return;
       }
       // using this.cells[cell] = this.player
@@ -38,7 +38,7 @@ export default {
       }
     },
     swapPlayer() {
-      if (this.gameWon()) {
+      if (this.gameWon() || this.gameTied()) {
         return;
       }
       if (this.player === 'X') {
@@ -50,6 +50,8 @@ export default {
     status() {
       if (this.gameWon()) {
         return `Game won by ${this.player}`;
+      } else if (this.gameTied()) {
+        return 'The game is tied.';
       }
       return `It is ${this.player} turn`;
     },
@@ -76,7 +78,11 @@ export default {
     reset() {
       this.player = 'X';
       this.cells = Array.from({ length: 9 });
-    }
+    },
+    gameTied() {
+      return this.cells.every(v => v !== undefined)
+        && !this.gameWon();
+    },
   },
 };
 </script>

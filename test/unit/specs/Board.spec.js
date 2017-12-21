@@ -83,6 +83,14 @@ describe('CellGrid.vue', () => {
         expect(vm.check(0, 1, 2)).toBeFalsy();
       });
     });
+
+    describe('gameTied', () => {
+      it('has a tie', () => {
+        const vm = new Constructor().$mount();
+        vm.cells = [1,2,3,4,5,6,7,8,9];
+        expect(vm.gameTied()).toBeTruthy();
+      });
+    });
   });
 
   describe('when game not won ', () => {
