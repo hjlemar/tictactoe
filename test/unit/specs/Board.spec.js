@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Board from '@/components/Board';
 
-describe('CellGrid.vue', () => {
+describe('Board.vue', () => {
   let Constructor;
 
   const makeArray = (cells) => {
@@ -90,6 +90,28 @@ describe('CellGrid.vue', () => {
         vm.cells = [1,2,3,4,5,6,7,8,9];
         expect(vm.gameTied()).toBeTruthy();
       });
+
+      it('does not have a tie', () => {
+        const vm = new Constructor().$mount();
+        // last row is true
+        vm.cells =  [1,2,3,4,5,6,8,8,8];
+        expect(vm.gameTied()).toBeFalsy();
+      });
+    });
+
+    describe('reset', () => {
+      it('the board has been reset', () => {
+        const data = {
+          player: 'O',
+          cells: [1,2,3,4,5,6,7,8,9]
+        };
+        const vm = new Constructor({ data }).$mount();
+        expect(vm.player).toBe('O');
+        expect(vm.gameTied()).toBeTruthy();
+        vm.reset();
+        expect(vm.player).toBe('X');
+        expect(vm.gameTied()).toBeFalsy();
+      })
     });
   });
 
