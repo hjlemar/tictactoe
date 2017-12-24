@@ -87,14 +87,14 @@ describe('Board.vue', () => {
     describe('gameTied', () => {
       it('has a tie', () => {
         const vm = new Constructor().$mount();
-        vm.cells = [1,2,3,4,5,6,7,8,9];
+        vm.cells = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         expect(vm.gameTied()).toBeTruthy();
       });
 
       it('does not have a tie', () => {
         const vm = new Constructor().$mount();
         // last row is true
-        vm.cells =  [1,2,3,4,5,6,8,8,8];
+        vm.cells = [1, 2, 3, 4, 5, 6, 8, 8, 8];
         expect(vm.gameTied()).toBeFalsy();
       });
     });
@@ -103,7 +103,7 @@ describe('Board.vue', () => {
       it('the board has been reset', () => {
         const data = {
           player: 'O',
-          cells: [1,2,3,4,5,6,7,8,9]
+          cells: [1, 2, 3, 4, 5, 6, 7, 8, 9],
         };
         const vm = new Constructor({ data }).$mount();
         expect(vm.player).toBe('O');
@@ -111,7 +111,7 @@ describe('Board.vue', () => {
         vm.reset();
         expect(vm.player).toBe('X');
         expect(vm.gameTied()).toBeFalsy();
-      })
+      });
     });
   });
 
