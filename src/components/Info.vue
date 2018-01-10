@@ -1,5 +1,5 @@
 <template>
-    <div class="col-sm-6">
+    <div class="col-6">
       <div class="alert-info alert">{{ status }}</div>
     </div>
 </template>

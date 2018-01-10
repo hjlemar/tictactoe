@@ -1,5 +1,5 @@
 <template>
-  <div>{{ token }}</div>
+  <div class="p-2">{{ token }}</div>
 </template>
 
 <script>
@@ -10,8 +10,8 @@ export default {
 
 <style scoped>
     div {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       background-color: lightblue;
       margin: 2px;
       border-radius: 15px;
